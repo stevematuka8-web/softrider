@@ -821,10 +821,10 @@
 
         <form class="contact-form" id="project-form">
           <div>
-            <input type="text" class="form-input" placeholder="Votre nom complet *" required />
+            <input type="text" class="form-input" id="contact-name" placeholder="Votre nom complet *" required />
           </div>
           <div>
-            <input type="email" class="form-input" placeholder="Votre email professionnel *" required />
+            <input type="email" class="form-input" id="contact-email" placeholder="Votre email professionnel *" required />
           </div>
           <div class="form-group--full">
             <select class="form-select" id="project-type" required>
@@ -836,7 +836,7 @@
             </select>
           </div>
           <div class="form-group--full">
-            <textarea class="form-textarea" placeholder="Parlez-nous de vos objectifs, fonctionnalités souhaitées ou délais... *" required></textarea>
+            <textarea class="form-textarea" id="contact-message" placeholder="Parlez-nous de vos objectifs, fonctionnalités souhaitées ou délais... *" required></textarea>
           </div>
           <div class="form-group--full">
             <button type="submit" class="btn-gradient" style="width: 100%;">
@@ -990,6 +990,7 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

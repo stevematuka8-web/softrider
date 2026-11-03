@@ -2,6 +2,13 @@
    SOFTRIDER — Interactive Animations, Neural Canvas & Assistant IA
    ========================================================================== */
 
+const SUPABASE_URL = 'https://yzntjpwkaszqoivlpkri.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_ZRBsjdiijxuDJXMoLvOXeg_RWdXLNTo';
+const supabaseClient =
+  typeof supabase !== 'undefined'
+    ? supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY)
+    : null;
+
 document.addEventListener('DOMContentLoaded', () => {
   /* ------------------------------------------------------------------------
      1. Cosmic Neural & Starfield Canvas Animation
@@ -357,14 +364,42 @@ document.addEventListener('DOMContentLoaded', () => {
   const formFeedback = document.getElementById('form-feedback');
 
   if (projectForm) {
-    projectForm.addEventListener('submit', (e) => {
+    projectForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (formFeedback) {
-        formFeedback.style.display = 'block';
-        formFeedback.textContent =
-          '✓ Merci ! Votre demande a bien été transmise aux experts SOFTRIDER. Nous vous recontactons sous 24h.';
+
+      const submitBtn = projectForm.querySelector('button[type="submit"]');
+      const lead = {
+        full_name: document.getElementById('contact-name').value.trim(),
+        email: document.getElementById('contact-email').value.trim(),
+        project_type: document.getElementById('project-type').value,
+        message: document.getElementById('contact-message').value.trim(),
+      };
+
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        if (!supabaseClient) throw new Error('Supabase non initialisé');
+        const { error } = await supabaseClient.from('leads').insert([lead]);
+        if (error) throw error;
+
+        if (formFeedback) {
+          formFeedback.style.display = 'block';
+          formFeedback.style.color = '#00e5ff';
+          formFeedback.textContent =
+            '✓ Merci ! Votre demande a bien été transmise aux experts SOFTRIDER. Nous vous recontactons sous 24h.';
+        }
+        projectForm.reset();
+      } catch (err) {
+        console.error('Erreur envoi lead Supabase:', err);
+        if (formFeedback) {
+          formFeedback.style.display = 'block';
+          formFeedback.style.color = '#f87171';
+          formFeedback.textContent =
+            '✗ Une erreur est survenue. Merci de nous contacter directement par email ou téléphone.';
+        }
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
       }
-      projectForm.reset();
     });
   }
 
