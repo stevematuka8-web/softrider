@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOFTRIDER — Agence Tech &amp; IA | L'innovation numérique sans limites</title>
+  <meta name="description" content="Intelligence artificielle, développement logiciel, sites web et applications mobiles : donnez vie à vos idées avec SOFTRIDER, votre agence Tech & IA." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Interactive Particle & Neural Network Canvas -->
+  <canvas id="cosmos-canvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient Neon Nebula Waves -->
+  <div class="ambient-waves" aria-hidden="true">
+    <div class="ambient-wave ambient-wave--1"></div>
+    <div class="ambient-wave ambient-wave--2"></div>
+    <div class="ambient-wave ambient-wave--3"></div>
+  </div>
+
+  <!-- ========================================================================
+       HEADER / NAVBAR
+       ======================================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <!-- Brand Logo (Hexagonal S Neon Ribbon + SOFTRIDER) -->
+      <a href="#accueil" class="brand" aria-label="SOFTRIDER Accueil">
+        <svg class="brand__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logoGrad1" x1="6" y1="8" x2="58" y2="56" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00E5FF" />
+              <stop offset="50%" stop-color="#3B82F6" />
+              <stop offset="100%" stop-color="#A855F7" />
+            </linearGradient>
+            <linearGradient id="logoGrad2" x1="56" y1="12" x2="12" y2="54" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#C084FC" />
+              <stop offset="55%" stop-color="#6366F1" />
+              <stop offset="100%" stop-color="#00E5FF" />
+            </linearGradient>
+          </defs>
+          <!-- Outer Hexagon S-Ribbon Top -->
+          <path d="M32 6L52 17.5V28L35 18.5L19 27.5L38 38.5L22 47.5L12 41.5V22.5L32 6Z" fill="url(#logoGrad1)" />
+          <!-- Outer Hexagon S-Ribbon Bottom -->
+          <path d="M32 58L12 46.5V36L29 45.5L45 36.5L26 25.5L42 16.5L52 22.5V41.5L32 58Z" fill="url(#logoGrad2)" opacity="0.92" />
+        </svg>
+        <span class="brand__text">SOFTRIDER</span>
+      </a>
+
+      <!-- Center Navigation -->
+      <ul class="nav" id="nav-menu">
+        <li class="nav__item">
+          <a href="#accueil" class="nav__link active" data-section="accueil">Accueil</a>
+        </li>
+        <li class="nav__item nav__item--dropdown">
+          <a href="#solutions" class="nav__link" data-section="solutions">
+            Nos Solutions
+            <svg class="nav__chevron" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          <!-- Dropdown Menu -->
+          <div class="dropdown-menu">
+            <a href="#solutions" class="dropdown-item" data-solution-modal="ai">
+              <div class="dropdown-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="6" y="6" width="12" height="12" rx="2" />
+                  <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3" />
+                </svg>
+              </div>
+              <div>
+                <span class="dropdown-item__title">Soft AI</span>
+                <span class="dropdown-item__desc">Intelligence artificielle &amp; automatisation</span>
+              </div>
+            </a>
+            <a href="#solutions" class="dropdown-item" data-solution-modal="dev">
+              <div class="dropdown-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+              </div>
+              <div>
+                <span class="dropdown-item__title">Soft Dev</span>
+                <span class="dropdown-item__desc">Création de logiciels sur mesure</span>
+              </div>
+            </a>
+            <a href="#solutions" class="dropdown-item" data-solution-modal="web">
+              <div class="dropdown-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="12" rx="2" />
+                  <line x1="2" y1="20" x2="22" y2="20" />
+                </svg>
+              </div>
+              <div>
+                <span class="dropdown-item__title">Soft Web</span>
+                <span class="dropdown-item__desc">Sites web &amp; applications mobiles</span>
+              </div>
+            </a>
+            <a href="#solutions" class="dropdown-item" data-solution-modal="digital">
+              <div class="dropdown-item__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                  <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                </svg>
+              </div>
+              <div>
+                <span class="dropdown-item__title">Soft Digital</span>
+                <span class="dropdown-item__desc">Conseil &amp; accompagnement numérique</span>
+              </div>
+            </a>
+          </div>
+        </li>
+        <li class="nav__item">
+          <a href="#realisations" class="nav__link" data-section="realisations">Réalisations</a>
+        </li>
+        <li class="nav__item">
+          <a href="#a-propos" class="nav__link" data-section="a-propos">À propos</a>
+        </li>
+        <li class="nav__item">
+          <a href="#tarifs" class="nav__link" data-section="tarifs">Tarifs</a>
+        </li>
+        <li class="nav__item">
+          <a href="#contact" class="nav__link" data-section="contact">Contact</a>
+        </li>
+      </ul>
+
+      <!-- Right Action CTA -->
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <a href="#contact" class="btn-gradient">
+          <span>Démarrer un projet</span>
+          <span class="btn-gradient__arrow">→</span>
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO SECTION (Matches Reference Poster)
+       ======================================================================== -->
+  <section class="hero" id="accueil">
+    <!-- Full-Bleed AI Humanoid & Holographic Globe Scene -->
+    <div class="hero__artwork-wrapper">
+      <div class="hero__artwork-scene" id="hero-parallax">
+        <img
+          src="assets/hero-ai.jpg"
+          alt="Robot humanoïde IA futuriste et globe numérique holographique SOFTRIDER"
+          class="hero__image"
+        />
+        <!-- Animated Holographic Energy Overlays -->
+        <div class="hero__holo-overlay">
+          <div class="cyber-ear-pulse"></div>
+          <div class="cyber-ear-ring"></div>
+          <div class="globe-aura"></div>
+          <div class="globe-orbit"></div>
+          <div class="globe-orbit globe-orbit--2"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left Foreground Typography & CTAs -->
+    <div class="container">
+      <div class="hero__grid">
+        <div class="hero__content">
+          <!-- Pill Badge -->
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 20px;">
+            <div class="hero__badge" style="margin-bottom: 0;">
+              <span class="hero__badge-dot"></span>
+              <span>Agence Tech &amp; IA</span>
+            </div>
+            <div class="hero__badge" style="margin-bottom: 0; border-color: rgba(192, 132, 252, 0.45);">
+              <span style="color: #c084fc; font-weight: 700;">Un produit de M2K FinTech</span>
+            </div>
+          </div>
+
+          <!-- Giant Brand Display Title -->
+          <div class="hero__brand-title" aria-label="SOFTRIDER">
+            <span class="hero__brand-soft">SOFT</span><span class="hero__brand-rider">RIDER</span>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="hero__headline">
+            L'innovation numérique<br />
+            sans <span class="text-gradient-limites">limites.</span>
+          </h1>
+
+          <!-- Subtitle Paragraph -->
+          <p class="hero__description">
+            Intelligence artificielle, développement logiciel, sites web et applications mobiles : donnez vie à vos idées avec une équipe d'experts passionnés.
+          </p>
+
+          <!-- Direct Contact Pill in Hero -->
+          <div style="display: inline-flex; flex-wrap: wrap; align-items: center; gap: 14px; padding: 8px 16px; border-radius: 12px; background: rgba(11, 18, 48, 0.72); border: 1px solid rgba(56, 189, 248, 0.3); font-size: 0.84rem; color: #e2e8f0; margin-bottom: 22px;">
+            <span>✉ <a href="mailto:service.commercial@m2k-fintech.fr" style="color: #00e5ff; text-decoration: none; font-weight: 600;">service.commercial@m2k-fintech.fr</a></span>
+            <span style="opacity: 0.4;">|</span>
+            <span>✆ <a href="tel:+33699882087" style="color: #00e5ff; text-decoration: none; font-weight: 600;">+33 6 99 88 20 87</a></span>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="hero__actions">
+            <a href="#solutions" class="btn-gradient">
+              <span>Découvrir nos solutions</span>
+              <span class="btn-gradient__arrow">→</span>
+            </a>
+
+            <button type="button" class="btn-video" id="open-video-modal">
+              <span class="btn-video__icon">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="#ffffff">
+                  <polygon points="6 3 20 12 6 21 6 3" />
+                </svg>
+              </span>
+              <span>Voir notre vidéo</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right column spacer for visual balance over the AI robot -->
+        <div aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4 SOLUTION CARDS STRIP (Soft AI, Soft Dev, Soft Web, Soft Digital)
+       ======================================================================== -->
+  <section class="solutions-strip" id="solutions">
+    <div class="container">
+      <div class="solutions-grid">
+
+        <!-- Card 1: Soft AI -->
+        <a href="#contact" class="solution-card reveal" data-solution-modal="ai">
+          <div class="solution-card__left">
+            <div class="solution-card__icon">
+              <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="12" y="12" width="24" height="24" rx="4" stroke="currentColor" stroke-width="2.5" />
+                <rect x="18" y="18" width="12" height="12" rx="2" stroke="#818CF8" stroke-width="2" />
+                <!-- Chip pins -->
+                <path d="M18 6V12M24 6V12M30 6V12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M18 36V42M24 36V42M30 36V42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M6 18H12M6 24H12M6 30H12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M36 18H42M36 24H42M36 30H42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <h2 class="solution-card__title">Soft AI</h2>
+              <p class="solution-card__desc">Intelligence artificielle<br />et automatisation</p>
+            </div>
+          </div>
+          <span class="solution-card__arrow">→</span>
+        </a>
+
+        <!-- Card 2: Soft Dev -->
+        <a href="#contact" class="solution-card reveal" data-solution-modal="dev" style="transition-delay: 0.08s;">
+          <div class="solution-card__left">
+            <div class="solution-card__icon">
+              <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 16L6 24L16 32" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M32 16L42 24L32 32" stroke="#818CF8" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M27 12L21 36" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <h2 class="solution-card__title">Soft Dev</h2>
+              <p class="solution-card__desc">Création de logiciels<br />sur mesure</p>
+            </div>
+          </div>
+          <span class="solution-card__arrow">→</span>
+        </a>
+
+        <!-- Card 3: Soft Web -->
+        <a href="#contact" class="solution-card reveal" data-solution-modal="web" style="transition-delay: 0.16s;">
+          <div class="solution-card__left">
+            <div class="solution-card__icon">
+              <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="11" width="32" height="21" rx="3" stroke="currentColor" stroke-width="2.6" />
+                <path d="M4 35H44L41 38H7L4 35Z" fill="currentColor" opacity="0.85" />
+                <line x1="14" y1="18" x2="26" y2="18" stroke="#818CF8" stroke-width="2.2" stroke-linecap="round" />
+                <line x1="14" y1="23" x2="22" y2="23" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <h2 class="solution-card__title">Soft Web</h2>
+              <p class="solution-card__desc">Sites web et<br />applications mobiles</p>
+            </div>
+          </div>
+          <span class="solution-card__arrow">→</span>
+        </a>
+
+        <!-- Card 4: Soft Digital -->
+        <a href="#contact" class="solution-card solution-card--purple reveal" data-solution-modal="digital" style="transition-delay: 0.24s;">
+          <div class="solution-card__left">
+            <div class="solution-card__icon">
+              <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M26.5 29.5L18.5 21.5C21.5 14.5 29 9.5 38 9C37.5 18 32.5 25.5 26.5 29.5Z" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" />
+                <circle cx="29.5" cy="18.5" r="2.5" fill="#00E5FF" />
+                <path d="M18.5 21.5L12 23L15 28.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M26.5 29.5L25 36L19.5 33" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M13 35C11 33 11 29.5 13.5 28C15 29.5 18.5 33 17 35.5C15.5 37 14.5 36.5 13 35Z" stroke="#00E5FF" stroke-width="2.2" />
+              </svg>
+            </div>
+            <div>
+              <h2 class="solution-card__title">Soft Digital</h2>
+              <p class="solution-card__desc">Conseil et accompagnement<br />numérique</p>
+            </div>
+          </div>
+          <span class="solution-card__arrow">→</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       VISION SECTION ("Transformez votre vision en réalité")
+       ======================================================================== -->
+  <section class="vision-section" id="a-propos">
+    <div class="container">
+      <div class="vision-grid">
+
+        <!-- Column 1: Heading, Description, CTA -->
+        <div class="vision__left reveal">
+          <h2 class="vision__title">
+            Transformez votre<br />
+            vision en <span class="text-gradient-realite">réalité</span>
+          </h2>
+          <p class="vision__desc">
+            Chez <strong>SOFTRIDER</strong>, nous vous accompagnons à chaque étape de votre projet digital, de la conception au déploiement, pour une transformation numérique réussie.
+          </p>
+          <a href="#methode" class="btn-gradient">
+            <span>En savoir plus</span>
+            <span class="btn-gradient__arrow">→</span>
+          </a>
+        </div>
+
+        <!-- Vertical Divider -->
+        <div class="vision-divider" aria-hidden="true"></div>
+
+        <!-- Column 2: 5 Glowing Checkmark Items -->
+        <ul class="vision-checklist reveal" style="transition-delay: 0.1s;">
+          <li class="vision-checklist__item">
+            <span class="check-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>
+            <span>Solutions sur mesure</span>
+          </li>
+          <li class="vision-checklist__item">
+            <span class="check-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>
+            <span>Expertise technologique</span>
+          </li>
+          <li class="vision-checklist__item">
+            <span class="check-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>
+            <span>Innovation continue</span>
+          </li>
+          <li class="vision-checklist__item">
+            <span class="check-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>
+            <span>Accompagnement personnalisé</span>
+          </li>
+          <li class="vision-checklist__item">
+            <span class="check-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>
+            <span>Sécurité &amp; performance</span>
+          </li>
+        </ul>
+
+        <!-- Column 3: Floating 3D Multi-Device Showcase (Laptop, Smartphone, Tablets) -->
+        <div class="devices-showcase reveal" style="transition-delay: 0.2s;" aria-label="Aperçu multi-écrans Web, Mobile et Logiciel">
+          <div class="devices-showcase__glow"></div>
+
+          <!-- 1. Laptop Mockup -->
+          <div class="mockup-laptop">
+            <div class="mockup-laptop__topbar">
+              <span class="mockup-dot"></span>
+              <span class="mockup-dot"></span>
+              <span class="mockup-dot"></span>
+              <span style="font-size: 0.48rem; color: #94a3b8; margin-left: 6px;">softrider.ai/studio</span>
+            </div>
+            <div class="mockup-laptop__body">
+              <div class="mockup-laptop__text">
+                <span class="mockup-tag">SOFTRIDER PLATFORM</span>
+                <div class="mockup-h">Solutions Digitales &amp; IA Entreprise</div>
+                <div class="mockup-bars">
+                  <div class="mockup-bar mockup-bar--cyan"></div>
+                  <div class="mockup-bar" style="width: 90%;"></div>
+                  <div class="mockup-bar" style="width: 60%;"></div>
+                </div>
+                <div class="mockup-btn-mini"></div>
+              </div>
+              <div class="mockup-laptop__avatar">
+                <!-- Stylized Tech Consultant Portrait SVG -->
+                <svg viewBox="0 0 100 120" width="100%" height="100%">
+                  <defs>
+                    <linearGradient id="suitGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#1e293b" />
+                      <stop offset="100%" stop-color="#0f172a" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="50" cy="42" r="28" fill="rgba(56,189,248,0.16)" />
+                  <path d="M20 120 C20 86 80 86 80 120 Z" fill="url(#suitGrad)" stroke="#38bdf8" stroke-width="1.2" />
+                  <circle cx="50" cy="46" r="16" fill="#e2e8f0" />
+                  <path d="M33 44 C33 24 67 24 67 44 C64 34 38 34 33 44 Z" fill="#1e1b4b" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Center Smartphone App Mockup -->
+          <div class="mockup-phone">
+            <div class="mockup-phone__notch"></div>
+            <div class="mockup-phone__hero">
+              <div class="mockup-phone__orb"></div>
+              <span style="font-size: 0.5rem; font-weight: 700; color: #fff;">SoftAI Mobile</span>
+            </div>
+            <div class="mockup-phone__cards">
+              <div class="mockup-phone__mini-card">
+                <div class="mockup-bar mockup-bar--cyan" style="width: 60%;"></div>
+                <div class="mockup-bar" style="width: 85%;"></div>
+              </div>
+              <div class="mockup-phone__mini-card">
+                <div class="mockup-bar" style="width: 75%; background: #a855f7;"></div>
+                <div class="mockup-bar" style="width: 55%;"></div>
+              </div>
+            </div>
+            <div class="mockup-bars" style="padding: 0 2px;">
+              <div class="mockup-bar" style="width: 100%;"></div>
+              <div class="mockup-bar" style="width: 70%;"></div>
+            </div>
+            <div class="mockup-phone__cta"></div>
+          </div>
+
+          <!-- 3. Right Floating SaaS Dashboard Tablet -->
+          <div class="mockup-tablet">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="mockup-tag">ÉQUIPE &amp; AGENTS IA</span>
+              <span style="width: 6px; height: 6px; border-radius: 50%; background: #10b981;"></span>
+            </div>
+            <div class="mockup-grid-users">
+              <div class="mockup-user-tile">
+                <div class="mockup-user-dot"></div>
+                <div class="mockup-bar" style="width: 70%;"></div>
+              </div>
+              <div class="mockup-user-tile">
+                <div class="mockup-user-dot"></div>
+                <div class="mockup-bar" style="width: 65%;"></div>
+              </div>
+              <div class="mockup-user-tile">
+                <div class="mockup-user-dot"></div>
+                <div class="mockup-bar" style="width: 75%;"></div>
+              </div>
+              <div class="mockup-user-tile">
+                <div class="mockup-user-dot"></div>
+                <div class="mockup-bar" style="width: 60%;"></div>
+              </div>
+              <div class="mockup-user-tile">
+                <div class="mockup-user-dot"></div>
+                <div class="mockup-bar" style="width: 80%;"></div>
+              </div>
+              <div class="mockup-user-tile">
+                <div class="mockup-user-dot"></div>
+                <div class="mockup-bar" style="width: 65%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Bottom Analytics Card -->
+          <div class="mockup-tablet mockup-tablet--bottom">
+            <span class="mockup-tag" style="color: #c084fc;">PERFORMANCE CLOUD</span>
+            <div class="mockup-bars" style="margin-top: 10px; gap: 7px;">
+              <div class="mockup-bar mockup-bar--cyan" style="width: 92%; height: 6px;"></div>
+              <div class="mockup-bar" style="width: 78%; height: 6px; background: #8b5cf6;"></div>
+              <div class="mockup-bar" style="width: 64%; height: 6px;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       NOTRE MÉTHODE SECTION (4-Step Process Timeline)
+       ======================================================================== -->
+  <section class="method-section" id="methode">
+    <div class="container">
+      <div class="method__header reveal">
+        <h2 class="method__title">Notre méthode</h2>
+        <p class="method__subtitle">Un processus simple et efficace pour concrétiser vos projets</p>
+      </div>
+
+      <div class="method-steps">
+
+        <!-- Step 1: Découverte -->
+        <div class="method-step reveal">
+          <div class="method-step__top">
+            <div class="method-step__number">1</div>
+            <div class="method-step__icon">
+              <!-- Lightbulb Icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18h6" />
+                <path d="M10 22h4" />
+                <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14" />
+              </svg>
+            </div>
+            <div class="method-step__arrow">
+              <span class="method-step__laser"></span>
+            </div>
+          </div>
+          <div class="method-step__body">
+            <h3 class="method-step__name">Découverte</h3>
+            <p class="method-step__desc">Comprendre vos besoins</p>
+          </div>
+        </div>
+
+        <!-- Step 2: Conception -->
+        <div class="method-step reveal" style="transition-delay: 0.1s;">
+          <div class="method-step__top">
+            <div class="method-step__number">2</div>
+            <div class="method-step__icon">
+              <!-- Pen Nib / Design Icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 19l7-7 3 3-7 7-3-3z" />
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+                <path d="M2 2l7.586 7.586" />
+              </svg>
+            </div>
+            <div class="method-step__arrow">
+              <span class="method-step__laser"></span>
+            </div>
+          </div>
+          <div class="method-step__body">
+            <h3 class="method-step__name">Conception</h3>
+            <p class="method-step__desc">Imaginer la meilleure solution</p>
+          </div>
+        </div>
+
+        <!-- Step 3: Développement -->
+        <div class="method-step reveal" style="transition-delay: 0.2s;">
+          <div class="method-step__top">
+            <div class="method-step__number">3</div>
+            <div class="method-step__icon">
+              <!-- Code </> Icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+                <line x1="14" y1="4" x2="10" y2="20" />
+              </svg>
+            </div>
+            <div class="method-step__arrow">
+              <span class="method-step__laser"></span>
+            </div>
+          </div>
+          <div class="method-step__body">
+            <h3 class="method-step__name">Développement</h3>
+            <p class="method-step__desc">Construire avec excellence</p>
+          </div>
+        </div>
+
+        <!-- Step 4: Lancement -->
+        <div class="method-step reveal" style="transition-delay: 0.3s;">
+          <div class="method-step__top">
+            <div class="method-step__number">4</div>
+            <div class="method-step__icon">
+              <!-- Checkmark Icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+          </div>
+          <div class="method-step__body">
+            <h3 class="method-step__name">Lancement</h3>
+            <p class="method-step__desc">Vous accompagner durablement</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       NOS RÉALISATIONS SECTION (#realisations)
+       ======================================================================== -->
+  <section class="section-block" id="realisations">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Portfolio &amp; Cas Clients</span>
+        <h2 class="section-title">Nos <span class="text-gradient-realite">Réalisations</span></h2>
+        <p class="section-subtitle">
+          Découvrez comment nous propulsons les entreprises grâce à des plateformes web haute performance, des logiciels métiers et des agents IA autonomes.
+        </p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="portfolio-filters reveal">
+        <button class="filter-btn active" data-filter="all">Tous les projets</button>
+        <button class="filter-btn" data-filter="ai">Soft AI &amp; Automatisation</button>
+        <button class="filter-btn" data-filter="dev">Logiciels Sur-Mesure</button>
+        <button class="filter-btn" data-filter="web">Sites Web &amp; Mobile</button>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div class="portfolio-grid">
+        <article class="portfolio-card reveal" data-category="ai">
+          <div class="portfolio-card__visual">
+            <span class="portfolio-card__badge">Soft AI • Agent RAG</span>
+            <div>
+              <div class="portfolio-card__metric">-68%</div>
+              <span style="font-size: 0.8rem; color: #cbd5e1;">Temps de traitement support &amp; CRM</span>
+            </div>
+          </div>
+          <div class="portfolio-card__body">
+            <h3 class="portfolio-card__title">NexusAI — Copilote Entreprise Multicanal</h3>
+            <p class="portfolio-card__desc">
+              Déploiement d'un écosystème d'agents IA connectés aux bases documentaires internes et à l'ERP pour automatiser la qualification client 24/7.
+            </p>
+            <div class="portfolio-card__tags">
+              <span class="tech-pill">LLM &amp; RAG</span>
+              <span class="tech-pill">Python / FastAPI</span>
+              <span class="tech-pill">Automatisation</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal" data-category="dev">
+          <div class="portfolio-card__visual">
+            <span class="portfolio-card__badge">Soft Dev • SaaS Cloud</span>
+            <div>
+              <div class="portfolio-card__metric">99.98%</div>
+              <span style="font-size: 0.8rem; color: #cbd5e1;">Disponibilité &amp; synchronisation temps réel</span>
+            </div>
+          </div>
+          <div class="portfolio-card__body">
+            <h3 class="portfolio-card__title">LogiPulse — Suite ERP &amp; Pilotage Logistique</h3>
+            <p class="portfolio-card__desc">
+              Architecture logicielle sur mesure permettant le suivi de flotte en temps réel, la prédiction des stocks par IA et la facturation automatisée.
+            </p>
+            <div class="portfolio-card__tags">
+              <span class="tech-pill">React / TypeScript</span>
+              <span class="tech-pill">Node.js</span>
+              <span class="tech-pill">Cloud Native</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal" data-category="web">
+          <div class="portfolio-card__visual">
+            <span class="portfolio-card__badge">Soft Web • Web &amp; App iOS/Android</span>
+            <div>
+              <div class="portfolio-card__metric">+240%</div>
+              <span style="font-size: 0.8rem; color: #cbd5e1;">Taux de conversion digital</span>
+            </div>
+          </div>
+          <div class="portfolio-card__body">
+            <h3 class="portfolio-card__title">AuraPay — Expérience Web Immersive &amp; App Mobile</h3>
+            <p class="portfolio-card__desc">
+              Refonte complète d'une plateforme FinTech avec animations 3D temps réel, parcours client ultra-rapide et application mobile biométrique.
+            </p>
+            <div class="portfolio-card__tags">
+              <span class="tech-pill">Next.js</span>
+              <span class="tech-pill">Flutter</span>
+              <span class="tech-pill">Design System</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TARIFS SECTION (#tarifs)
+       ======================================================================== -->
+  <section class="section-block" id="tarifs">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Investissement &amp; Formules</span>
+        <h2 class="section-title">Des offres adaptées à <span class="text-gradient-realite">votre ambition</span></h2>
+        <p class="section-subtitle">
+          Que vous lanciez votre présence digitale ou que vous déployiez une infrastructure logicielle et IA complète, nous créons une solution sur mesure.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Plan 1: Soft Web -->
+        <div class="pricing-card reveal">
+          <h3 class="pricing-card__name">Pack Soft Web</h3>
+          <p class="pricing-card__tagline">Site vitrine futuriste, landing page ou e-commerce haute conversion</p>
+          <div class="pricing-card__price">Sur mesure <span>/ projet clé en main</span></div>
+          <ul class="pricing-card__features">
+            <li><span class="check-badge">✓</span> Design UI/UX futuriste &amp; animations sur mesure</li>
+            <li><span class="check-badge">✓</span> Responsive Mobile, Tablette &amp; Desktop</li>
+            <li><span class="check-badge">✓</span> Optimisation SEO technique &amp; vitesse maximale</li>
+            <li><span class="check-badge">✓</span> Intégration Chatbot Assistant IA incluse</li>
+          </ul>
+          <a href="#contact" class="btn-gradient" style="width: 100%;">
+            <span>Demander un devis Web</span>
+            <span class="btn-gradient__arrow">→</span>
+          </a>
+        </div>
+
+        <!-- Plan 2: Soft Dev & AI (Featured) -->
+        <div class="pricing-card pricing-card--featured reveal">
+          <span class="pricing-card__popular">Le plus populaire</span>
+          <h3 class="pricing-card__name">Pack Soft Dev &amp; IA</h3>
+          <p class="pricing-card__tagline">Application web/mobile sur mesure &amp; intégration d'intelligence artificielle</p>
+          <div class="pricing-card__price">Sur-Mesure <span>/ sprint ou forfait</span></div>
+          <ul class="pricing-card__features">
+            <li><span class="check-badge">✓</span> Développement logiciel SaaS, CRM ou App Mobile</li>
+            <li><span class="check-badge">✓</span> Agents IA personnalisés, RAG &amp; automatisations</li>
+            <li><span class="check-badge">✓</span> Connexion API à vos outils métiers existants</li>
+            <li><span class="check-badge">✓</span> Architecture Cloud sécurisée &amp; évolutive</li>
+            <li><span class="check-badge">✓</span> Accompagnement dédié de A à Z</li>
+          </ul>
+          <a href="#contact" class="btn-gradient" style="width: 100%;">
+            <span>Lancer mon projet Tech &amp; IA</span>
+            <span class="btn-gradient__arrow">→</span>
+          </a>
+        </div>
+
+        <!-- Plan 3: Soft Digital Enterprise -->
+        <div class="pricing-card reveal">
+          <h3 class="pricing-card__name">Soft Digital 360°</h3>
+          <p class="pricing-card__tagline">Direction technique externalisée, R&amp;D IA &amp; transformation digitale</p>
+          <div class="pricing-card__price">Partenariat <span>/ accompagnement continu</span></div>
+          <ul class="pricing-card__features">
+            <li><span class="check-badge">✓</span> Audit complet de vos processus &amp; feuille de route IA</li>
+            <li><span class="check-badge">✓</span> Équipe d'ingénieurs &amp; designers dédiée</li>
+            <li><span class="check-badge">✓</span> Maintenance évolutive, SLA &amp; cybersécurité</li>
+            <li><span class="check-badge">✓</span> Formation de vos équipes aux outils IA</li>
+          </ul>
+          <a href="#contact" class="btn-gradient" style="width: 100%;">
+            <span>Parler à un expert</span>
+            <span class="btn-gradient__arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CONTACT SECTION (#contact)
+       ======================================================================== -->
+  <section class="section-block" id="contact">
+    <div class="container">
+      <div class="contact-card reveal">
+        <div>
+          <span class="section-tag">Contact &amp; Devis Gratuit</span>
+          <h2 class="vision__title" style="margin-top: 8px;">
+            Prêt à donner vie à <span class="text-gradient-realite">votre projet ?</span>
+          </h2>
+          <p class="vision__desc">
+            Décrivez-nous votre besoin en site internet, logiciel sur mesure ou intégration d'intelligence artificielle. Notre équipe vous répond sous 24h avec une proposition claire.
+          </p>
+
+          <ul class="contact-info__list">
+            <li class="contact-info__item">
+              <span class="contact-info__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </span>
+              <div>
+                <strong style="color: #fff; display: block;">Email direct</strong>
+                <a href="mailto:service.commercial@m2k-fintech.fr" style="color: var(--cyan); text-decoration: none;">service.commercial@m2k-fintech.fr</a>
+              </div>
+            </li>
+            <li class="contact-info__item">
+              <span class="contact-info__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </span>
+              <div>
+                <strong style="color: #fff; display: block;">Téléphone direct</strong>
+                <a href="tel:+33699882087" style="color: var(--cyan); text-decoration: none;">+33 6 99 88 20 87</a>
+              </div>
+            </li>
+            <li class="contact-info__item">
+              <span class="contact-info__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                  <path d="M2 17l10 5 10-5" />
+                  <path d="M2 12l10 5 10-5" />
+                </svg>
+              </span>
+              <div>
+                <strong style="color: #fff; display: block;">Mention produit</strong>
+                <span><strong>SOFTRIDER</strong> est un produit de <strong style="color: #c084fc;">M2K FinTech</strong></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact-form" id="project-form">
+          <div>
+            <input type="text" class="form-input" placeholder="Votre nom complet *" required />
+          </div>
+          <div>
+            <input type="email" class="form-input" placeholder="Votre email professionnel *" required />
+          </div>
+          <div class="form-group--full">
+            <select class="form-select" id="project-type" required>
+              <option value="" disabled selected>Quel pôle vous intéresse ? *</option>
+              <option value="Soft AI">Soft AI — Intelligence artificielle &amp; Automatisation</option>
+              <option value="Soft Dev">Soft Dev — Création de logiciel sur mesure</option>
+              <option value="Soft Web">Soft Web — Site web &amp; Application mobile</option>
+              <option value="Soft Digital">Soft Digital — Conseil &amp; Transformation numérique</option>
+            </select>
+          </div>
+          <div class="form-group--full">
+            <textarea class="form-textarea" placeholder="Parlez-nous de vos objectifs, fonctionnalités souhaitées ou délais... *" required></textarea>
+          </div>
+          <div class="form-group--full">
+            <button type="submit" class="btn-gradient" style="width: 100%;">
+              <span>Envoyer ma demande de projet</span>
+              <span class="btn-gradient__arrow">→</span>
+            </button>
+          </div>
+          <div class="form-group--full" id="form-feedback" style="display: none; color: #00e5ff; font-weight: 600; text-align: center; padding-top: 6px;"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display: flex; flex-direction: column; gap: 8px; align-items: center;">
+      <p>
+        © 2026 <strong>SOFTRIDER</strong> — Agence Tech &amp; IA. <strong>SOFTRIDER est un produit de <span style="color: #38bdf8;">M2K FinTech</span></strong>. Tous droits réservés.
+      </p>
+      <p style="font-size: 0.84rem; color: #cbd5e1;">
+        Contact direct : <a href="mailto:service.commercial@m2k-fintech.fr" style="color: #00e5ff; text-decoration: none;">service.commercial@m2k-fintech.fr</a>
+        &nbsp;•&nbsp;
+        Tél : <a href="tel:+33699882087" style="color: #00e5ff; text-decoration: none;">+33 6 99 88 20 87</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       FLOATING "ASSISTANT IA" WIDGET PROPULSÉ PAR GEMINI
+       ======================================================================== -->
+  <aside class="ai-assistant" id="ai-assistant" aria-label="Assistant IA SOFTRIDER propulsé par Gemini">
+    <div class="ai-assistant__header">
+      <div class="ai-assistant__identity">
+        <div class="ai-assistant__avatar">
+          <svg width="22" height="22" viewBox="0 0 64 64" fill="none">
+            <path d="M32 6L52 17.5V28L35 18.5L19 27.5L38 38.5L22 47.5L12 41.5V22.5L32 6Z" fill="#00E5FF" />
+            <path d="M32 58L12 46.5V36L29 45.5L45 36.5L26 25.5L42 16.5L52 22.5V41.5L32 58Z" fill="#A855F7" />
+          </svg>
+        </div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span class="ai-assistant__name">Assistant IA</span>
+            <span class="gemini-badge" title="Propulsé par Google Gemini">
+              <svg class="gemini-sparkle" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C12 7.5 16.5 12 22 12C16.5 12 12 16.5 12 22C12 16.5 7.5 12 2 12C7.5 12 12 7.5 12 2Z" fill="url(#geminiGrad)" />
+                <defs>
+                  <linearGradient id="geminiGrad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#00E5FF" />
+                    <stop offset="50%" stop-color="#818CF8" />
+                    <stop offset="100%" stop-color="#F472B6" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              Gemini
+            </span>
+          </div>
+          <div class="ai-assistant__status">
+            <span class="status-online-dot" id="gemini-status-dot"></span>
+            <span id="gemini-status-text">En ligne • Gemini 2.5</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-assistant__header-actions">
+        <button type="button" class="ai-assistant__icon-btn" id="toggle-gemini-config" title="Configurer la clé API Google Gemini" aria-label="Configurer la clé API Gemini">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" />
+          </svg>
+        </button>
+        <button type="button" class="ai-assistant__icon-btn" id="clear-gemini-chat" title="Réinitialiser la conversation" aria-label="Réinitialiser la conversation">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="1 4 1 10 7 10" />
+            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+          </svg>
+        </button>
+        <button type="button" class="ai-assistant__close" id="close-assistant" aria-label="Réduire l'assistant IA">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Gemini API Key Configuration Drawer -->
+    <div class="ai-config-drawer" id="gemini-config-drawer">
+      <div class="ai-config-label">
+        <span>Clé API Google Gemini (`gemini-2.5-flash`)</span>
+        <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" style="color: #00e5ff; text-decoration: none;">Obtenir une clé ↗</a>
+      </div>
+      <div class="ai-config-row">
+        <input
+          type="password"
+          id="gemini-api-key-input"
+          class="ai-config-input"
+          placeholder="AIzaSy... (ou via serveur local)"
+          autocomplete="off"
+        />
+        <button type="button" class="ai-config-save" id="save-gemini-key">Activer</button>
+      </div>
+      <div id="gemini-config-hint" style="font-size: 0.69rem; color: #64748b; line-height: 1.35;">
+        Stockée localement dans votre navigateur ou utilisée via <code>GEMINI_API_KEY</code> sur le serveur.
+      </div>
+    </div>
+
+    <div class="ai-assistant__body" id="ai-chat-body">
+      <div class="ai-msg">
+        Bonjour ! 👋<br />
+        Comment puis-je vous aider aujourd'hui ?
+      </div>
+
+      <div class="ai-quick-actions" id="ai-quick-actions">
+        <button type="button" class="ai-quick-btn" data-prompt="Nos services">Nos services</button>
+        <button type="button" class="ai-quick-btn" data-prompt="Demander un devis">Demander un devis</button>
+        <button type="button" class="ai-quick-btn" data-prompt="Parler à un expert">Parler à un expert</button>
+      </div>
+    </div>
+
+    <form class="ai-assistant__footer" id="ai-chat-form">
+      <div class="ai-input-wrap">
+        <input
+          type="text"
+          class="ai-input"
+          id="ai-chat-input"
+          placeholder="Posez votre question à Gemini..."
+          autocomplete="off"
+        />
+        <button type="submit" class="ai-send-btn" id="ai-send-btn" aria-label="Envoyer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13" />
+            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+          </svg>
+        </button>
+      </div>
+    </form>
+  </aside>
+
+  <!-- Launcher Pill when Assistant IA is minimized -->
+  <button type="button" class="ai-launcher" id="ai-launcher">
+    <span class="status-online-dot"></span>
+    <span>Assistant IA • Gemini ✨</span>
+  </button>
+
+  <!-- ========================================================================
+       INTERACTIVE MODAL (Showreel Vidéo & Détails Solutions)
+       ======================================================================== -->
+  <div class="modal-backdrop" id="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-box">
+      <button type="button" class="modal-close" id="modal-close" aria-label="Fermer">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
