@@ -1,0 +1,28 @@
+# SOFTRIDER — Agence Tech & IA (Un produit de M2K FinTech)
+
+> L'innovation numérique sans limites : Intelligence artificielle, développement logiciel sur mesure, création de sites web et applications mobiles.
+
+## Identité & Éditeur
+- **Nom** : SOFTRIDER
+- **Éditeur / Société mère** : M2K FinTech
+- **Email direct** : service.commercial@m2k-fintech.fr
+- **Téléphone direct** : +33 6 99 88 20 87
+- **Langue principale** : Français (fr-FR)
+
+## Nos 4 Pôles d'Expertise
+1. **Soft AI** : Intelligence artificielle et automatisation (Agents IA propulsés par Google Gemini, RAG connecté aux données d'entreprise, automatisation CRM/ERP et support client 24/7).
+2. **Soft Dev** : Création de logiciels sur mesure (Plateformes SaaS, ERP, CRM, tableaux de bord décisionnels, API REST/GraphQL et architectures Cloud natives).
+3. **Soft Web** : Sites web et applications mobiles (Sites vitrines immersifs 3D, landing pages haute conversion, e-commerce, applications mobiles iOS & Android).
+4. **Soft Digital** : Conseil et accompagnement numérique (Audit technologique, CTO as a Service, transformation digitale, sécurité & performance, formation IA).
+
+## Notre Méthode en 4 Étapes
+1. **Découverte** : Comprendre vos besoins métiers et objectifs de croissance.
+2. **Conception** : Imaginer la meilleure solution technique et UI/UX.
+3. **Développement** : Construire avec excellence, sécurité et haute performance.
+4. **Lancement** : Déployer en production et vous accompagner durablement.
+
+## Contact & Devis
+- Email : service.commercial@m2k-fintech.fr
+- Téléphone : +33 6 99 88 20 87
+- Délai de réponse : Moins de 24h ouvrées.
+

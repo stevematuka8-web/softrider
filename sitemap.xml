@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://softrider.m2k-fintech.fr/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://softrider.m2k-fintech.fr/assets/hero-ai.jpg</image:loc>
+      <image:title>SOFTRIDER par M2K FinTech — Agence Tech &amp; IA</image:title>
+      <image:caption>L'innovation numérique sans limites : Intelligence artificielle, développement logiciel, sites web et applications mobiles.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://softrider.m2k-fintech.fr/assets/icon-512.png</image:loc>
+      <image:title>Logo SOFTRIDER — M2K FinTech</image:title>
+    </image:image>
+  </url>
+</urlset>
+

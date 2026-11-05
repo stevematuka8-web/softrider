@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemaps & AI Discovery
+Sitemap: https://softrider.m2k-fintech.fr/sitemap.xml
+
